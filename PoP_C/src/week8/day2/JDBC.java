@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 
 public class JDBC {
 	public boolean insert(int pid, String name) {
+		boolean result = false;
 		//sql statement
 		String sql = "INSERT INTO tbl_persons VALUES(?, ?);";
 		try {
@@ -21,10 +22,13 @@ public class JDBC {
 			//close all
 			pstat.close();
 			conn.close();
+			result=true;
 		} catch (Exception ex) {
 			//error message
+			System.out.println("Error : "+ex.getMessage());
+			result = false;
 		}
-		return false;//return result
+		return result;//return result
 	}
 
 	public boolean update(int pid, String name) {
