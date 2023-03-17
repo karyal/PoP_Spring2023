@@ -8,6 +8,8 @@ public class NewWindow extends JInternalFrame implements ActionListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	JLabel lbl1;
+	
 	JTextField txt1;
 	JButton btn1, btn2, btn3;
 	
@@ -15,6 +17,10 @@ public class NewWindow extends JInternalFrame implements ActionListener {
 		this.setTitle("Demo-1");
 		this.setSize(350, 350); //Pixel
 		this.setResizable(false);
+		
+		lbl1 = new JLabel();
+		lbl1.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
+		lbl1.setText("");
 		
 		txt1 =  new JTextField();
 		txt1.setText("0");
@@ -36,7 +42,7 @@ public class NewWindow extends JInternalFrame implements ActionListener {
 		btn3.addActionListener(this);
 		
 		this.setLayout(null);
-		
+		this.add(lbl1);
 		this.add(txt1);
 		this.add(btn1);
 		this.add(btn2);
